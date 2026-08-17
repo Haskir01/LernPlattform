@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="LernPlattform.Api/LernPlattform.Api.csproj" />
+  <Project Path="LernPlattform.Domain/LernPlattform.Domain.csproj" />
+  <Project Path="LernPlattform.Shared/LernPlattform.Shared.csproj" />
+  <Project Path="LernPlattform.Web/LernPlattform.Web.csproj" />
+</Solution>
