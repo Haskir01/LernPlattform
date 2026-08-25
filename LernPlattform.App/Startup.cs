@@ -20,6 +20,7 @@ namespace LernPlattform.App
                 BaseAddress = new Uri(ApiBaseUrl)
             });
             services.AddSingleton<IApiService, ApiService>();
+            services.AddSingleton<INavigationService, ShellNavigationService>();
             return services;
         }
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
@@ -30,6 +31,7 @@ namespace LernPlattform.App
         public static IServiceCollection RegisterViews(this IServiceCollection services)
         {
             services.AddTransient<BereichePage>();
+            services.AddTransient<LektionenPage>();
             return services;
         }
     }

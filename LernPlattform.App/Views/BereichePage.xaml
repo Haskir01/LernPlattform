@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dtos="clr-namespace:LernPlattform.Shared.Dtos;assembly=LernPlattform.Shared"
              x:Class="LernPlattform.App.Views.BereichePage"
+             x:Name="Seite"
              Title="Prüfungsbereiche">
 
     <Grid RowDefinitions="Auto,*">
@@ -30,8 +31,13 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14" />
                         </Border.StrokeShape>
-
-                        <VerticalStackLayout Spacing="6">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={x:Reference Seite},
+                                                  Path=BindingContext.KachelGetipptCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+                        <VerticalStackLayout Spacing="60">
                             <Label Text="{Binding Kuerzel}"
                                    FontSize="30"
                                    FontAttributes="Bold"
