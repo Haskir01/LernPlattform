@@ -5,9 +5,10 @@ namespace LernPlattform.App;
 
 public partial class AppShell : Shell
 {
+	// Konstruktor: Initialisiert die Shell und registriert Routen.
 	public AppShell()
 	{
 		InitializeComponent();
-        Routing.RegisterRoute(Routes.Lektionen, typeof(LektionenPage));
-    }
+		Routing.RegisterRoute(Routes.Lektionen, typeof(LektionenPage));
+	}
 }

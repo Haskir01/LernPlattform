@@ -23,6 +23,7 @@ namespace LernPlattform.App.ViewModels
 
         public ObservableCollection<BereichDto> Bereiche { get; } = new();
 
+        // Konstruktor: Initialisiert das ViewModel mit API- und Navigations-Service.
         public BereicheViewModel(IApiService api, INavigationService navigation)
         {
             _api = api;
@@ -30,6 +31,7 @@ namespace LernPlattform.App.ViewModels
         }
 
         [RelayCommand]
+        // Lädt die Bereiche von der API und füllt die ObservableCollection.
         private async Task LadenAsync()
         {
             IstAmLaden = true;
@@ -55,6 +57,7 @@ namespace LernPlattform.App.ViewModels
             }
         }
         [RelayCommand]
+        // Reagiert auf Tippen einer Bereichs-Kachel und navigiert zur Lektionen-Seite.
         private async Task KachelGetippt(BereichDto bereich)
         {
             if (bereich is null)

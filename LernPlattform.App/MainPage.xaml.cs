@@ -4,13 +4,15 @@ public partial class MainPage : ContentPage
 {
 	int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+		// Konstruktor: Initialisiert die Hauptseite und ihre UI.
+		public MainPage()
+		{
+			InitializeComponent();
+		}
 
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
+		// Erhöht den Zähler, aktualisiert den Button-Text und gibt die Änderung über die Sprachausgabe aus.
+		private void OnCounterClicked(object? sender, EventArgs e)
+		{
 		count++;
 
 		if (count == 1)

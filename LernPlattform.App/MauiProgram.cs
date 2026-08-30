@@ -8,8 +8,9 @@ namespace LernPlattform.App;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
+		// Baut und konfiguriert die MAUI-Anwendung: registriert Services, Views und Fonts.
+		public static MauiApp CreateMauiApp()
+		{
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()

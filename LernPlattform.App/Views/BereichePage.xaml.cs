@@ -6,6 +6,7 @@ public partial class BereichePage : ContentPage
 {
     private readonly BereicheViewModel _vm;
 
+    // Konstruktor: Initialisiert die Seite und setzt das ViewModel als BindingContext.
     public BereichePage(BereicheViewModel vm)
     {
         InitializeComponent();
@@ -13,6 +14,7 @@ public partial class BereichePage : ContentPage
         BindingContext = vm;
     }
 
+    // Wird beim Anzeigen der Seite aufgerufen; startet das Laden der Daten.
     protected override async void OnAppearing()
     {
         base.OnAppearing();
