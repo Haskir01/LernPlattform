@@ -21,6 +21,7 @@ namespace LernPlattform.Api.Data
     {
         Id = 1,
         Bezeichnung = "Fachinformatiker Baden-Württemberg",
+        Beschreibung="AP1, AP2 und Wiso",
         Farbe = "#1F3864",
         Reihenfolge = 1
     }

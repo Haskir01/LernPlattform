@@ -8,5 +8,6 @@ namespace LernPlattform.App.Interface
     public interface IApiService
     {
         Task<List<BereichDto>> GetBereicheAsync();
+        Task<List<KursDto>> GetKursAsync();
     }
 }

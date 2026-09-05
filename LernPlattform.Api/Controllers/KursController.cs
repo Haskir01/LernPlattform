@@ -20,6 +20,7 @@ namespace LernPlattform.Api.Controllers
             {
                 Id = b.Id,
                 Bezeichnung = b.Bezeichnung,
+                Beschreibung=b.Beschreibung,
                 Farbe = b.Farbe
             }).ToListAsync();
 

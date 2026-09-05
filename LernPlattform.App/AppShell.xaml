@@ -6,7 +6,7 @@
        Title="LernPlattform">
 
     <ShellContent Title="Prüfungsbereiche"
-                  ContentTemplate="{DataTemplate views:BereichePage}"
-                  Route="BereichePage" />
+                  ContentTemplate="{DataTemplate views:KursPage}"
+                  Route="KursPage" />
 
 </Shell>

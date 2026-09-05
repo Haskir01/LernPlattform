@@ -26,12 +26,14 @@ namespace LernPlattform.App
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
         {
             services.AddTransient<BereicheViewModel>();
+            services.AddTransient<KursViewModel>();
             return services;
         }
         public static IServiceCollection RegisterViews(this IServiceCollection services)
         {
             services.AddTransient<BereichePage>();
             services.AddTransient<LektionenPage>();
+            services.AddTransient<KursPage>();
             return services;
         }
     }

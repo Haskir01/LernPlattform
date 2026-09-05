@@ -8,6 +8,7 @@ namespace LernPlattform.Shared.Dtos
     {
         public int Id { get; set; }
         public string Bezeichnung { get; set; } = "";
+        public string Beschreibung { get; set; } = "";
         public string Farbe { get; set; } = "";
     }
 }

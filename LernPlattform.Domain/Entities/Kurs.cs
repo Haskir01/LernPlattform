@@ -8,6 +8,7 @@ namespace LernPlattform.Domain.Entities
     {
         public int Id { get; set; }
         public string? Bezeichnung { get; set; }
+        public string? Beschreibung { get; set; }
         public int Reihenfolge { get; set; }
         public bool IsAktiv { get; set; }
         public string Farbe { get; set; } = "#2E5395";

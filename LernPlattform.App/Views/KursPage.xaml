@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:dtos="clr-namespace:LernPlattform.Shared.Dtos;assembly=LernPlattform.Shared"
+             x:Class="LernPlattform.App.Views.KursPage"
+             x:Name="Seite"
+             Title="KursPage">
+    <Grid RowDefinitions="Auto,*">
+
+        <ActivityIndicator Grid.Row="0"
+                           IsRunning="{Binding IstAmLaden}"
+                           IsVisible="{Binding IstAmLaden}"
+                           Margin="0,20" />
+
+        <Label Grid.Row="0"
+               Text="{Binding FehlerText}"
+               TextColor="Red"
+               Margin="16"
+               HorizontalTextAlignment="Center" />
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Kurse}"
+                        Margin="16">
+
+            <!-- NEU: Raster statt Liste -->
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 HorizontalItemSpacing="12"
+                                 VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="dtos:KursDto">
+
+                    <!-- GEÄNDERT: Margin weg, feste Höhe, weniger Padding -->
+                    <Border BackgroundColor="{Binding Farbe}"
+                            StrokeThickness="0"
+                            Padding="16"
+                            HeightRequest="150">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={x:Reference Seite},
+                                                  Path=BindingContext.KachelGetipptCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+
+                        <!-- GEÄNDERT: Spacing 60 -> 6, zentriert -->
+                        <VerticalStackLayout Spacing="6"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="Center">
+                            <Label Text="{Binding Bezeichnung}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding Beschreibung}"
+       FontSize="13"
+       TextColor="White"
+       HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

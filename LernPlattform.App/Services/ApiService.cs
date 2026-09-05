@@ -22,5 +22,11 @@ namespace LernPlattform.App.Services
             var bereiche = await _http.GetFromJsonAsync<List<BereichDto>>("api/bereiche");
             return bereiche ?? new List<BereichDto>();
         }
+
+        public async Task<List<KursDto>> GetKursAsync()
+        {
+            var kurse = await _http.GetFromJsonAsync<List<KursDto>>("api/kurse");
+            return kurse ?? new List<KursDto>();
+        }
     }
 }
