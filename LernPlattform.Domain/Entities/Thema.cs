@@ -13,6 +13,7 @@ namespace LernPlattform.Domain.Entities
 
         // Fremdschlüssel: zu welcher Kachel gehört das Thema?
         public int PruefungsbereichId { get; set; }
-        public Pruefungsbereich? Pruefungsbereich { get; set; }
+        public Fachgebiet? Fachgebiet { get; set; }
+        public string? Lernfeld {  get; set; }
     }
 }

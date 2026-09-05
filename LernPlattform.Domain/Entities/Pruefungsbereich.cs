@@ -16,7 +16,7 @@ namespace LernPlattform.Domain.Entities
 
         // Reihenfolge der Kacheln
         public int Reihenfolge { get; set; }
-
-        public List<Thema> Themen { get; set; } = new();
+        public int KursId { get; set; }
+        public Kurs? Kurs { get; set; }
     }
 }
