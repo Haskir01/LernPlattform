@@ -8,26 +8,31 @@
 
     <Grid RowDefinitions="Auto,*">
 
-        <!-- Ladeanzeige -->
         <ActivityIndicator Grid.Row="0"
                            IsRunning="{Binding IstAmLaden}"
                            IsVisible="{Binding IstAmLaden}"
                            Margin="0,20" />
 
-        <!-- Fehlermeldung -->
-        
-
-        <!-- Die Kacheln -->
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Bereiche}"
                         Margin="16">
+
+            <!-- NEU: Raster statt Liste -->
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 HorizontalItemSpacing="12"
+                                 VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="dtos:BereichDto">
 
+                    <!-- GEÄNDERT: Margin weg, feste Höhe, weniger Padding -->
                     <Border BackgroundColor="{Binding Farbe}"
                             StrokeThickness="0"
-                            Margin="0,0,0,14"
-                            Padding="20">
+                            Padding="16"
+                            HeightRequest="150">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14" />
                         </Border.StrokeShape>
@@ -37,16 +42,18 @@
                                                   Path=BindingContext.KachelGetipptCommand}"
                                 CommandParameter="{Binding .}" />
                         </Border.GestureRecognizers>
-                        <VerticalStackLayout Spacing="60">
+
+                        <!-- GEÄNDERT: Spacing 60 -> 6, zentriert -->
+                        <VerticalStackLayout Spacing="6" VerticalOptions="Center">
                             <Label Text="{Binding Kuerzel}"
-                                   FontSize="30"
+                                   FontSize="22"
                                    FontAttributes="Bold"
                                    TextColor="White" />
                             <Label Text="{Binding Titel}"
-                                   FontSize="17"
+                                   FontSize="13"
                                    TextColor="White" />
                             <Label Text="{Binding Beschreibung}"
-                                   FontSize="13"
+                                   FontSize="11"
                                    TextColor="White"
                                    Opacity="0.85" />
                         </VerticalStackLayout>
