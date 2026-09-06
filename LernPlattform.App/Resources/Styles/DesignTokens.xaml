@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ===== FARBEN HELL ===== -->
+    <Color x:Key="SeiteHell">#F4F3EF</Color>
+    <Color x:Key="KarteHell">#FFFFFF</Color>
+    <Color x:Key="RahmenHell">#E2E1DC</Color>
+    <Color x:Key="GedruecktHell">#EDECE7</Color>
+    <Color x:Key="TextPrimaerHell">#191917</Color>
+    <Color x:Key="TextSekundaerHell">#6C6B65</Color>
+
+    <!-- ===== FARBEN DUNKEL ===== -->
+    <Color x:Key="SeiteDunkel">#121211</Color>
+    <Color x:Key="KarteDunkel">#1B1B1A</Color>
+    <Color x:Key="RahmenDunkel">#31312E</Color>
+    <Color x:Key="GedruecktDunkel">#232322</Color>
+    <Color x:Key="TextPrimaerDunkel">#F1F0EC</Color>
+    <Color x:Key="TextSekundaerDunkel">#9C9B95</Color>
+
+    <!-- ===== AKZENTE ===== -->
+    <Color x:Key="AkzentKursHell">#2C7A54</Color>
+    <Color x:Key="AkzentKursDunkel">#6DC292</Color>
+    <Color x:Key="AkzentAp1Hell">#2F6CA8</Color>
+    <Color x:Key="AkzentAp1Dunkel">#8AB4E8</Color>
+    <Color x:Key="AkzentSiHell">#0E7580</Color>
+    <Color x:Key="AkzentSiDunkel">#4FBCC4</Color>
+    <Color x:Key="AkzentAeHell">#7C5CAE</Color>
+    <Color x:Key="AkzentAeDunkel">#B79BE6</Color>
+    <Color x:Key="AkzentWisoHell">#7A5F1B</Color>
+    <Color x:Key="AkzentWisoDunkel">#C9A54A</Color>
+
+    <!-- ===== ABSTÄNDE ===== -->
+    <x:Double x:Key="SeitenRand">20</x:Double>
+    <x:Double x:Key="AbstandTitelListe">18</x:Double>
+    <x:Double x:Key="AbstandEintraege">8</x:Double>
+    <x:Double x:Key="MindesthoeheEintrag">60</x:Double>
+    <x:Double x:Key="MindesthoeheFachgebiet">56</x:Double>
+    <x:Double x:Key="Trefferflaeche">44</x:Double>
+    <Thickness x:Key="InnenabstandEintrag">14,12</Thickness>
+
+    <!-- ===== RADIEN ===== -->
+    <x:Double x:Key="RadiusEintrag">14</x:Double>
+    <x:Double x:Key="RadiusFachgebiet">12</x:Double>
+    <x:Double x:Key="RadiusChip">8</x:Double>
+
+    <!-- ===== SCHRIFTGRÖSSEN ===== -->
+    <x:Double x:Key="GroesseSeitentitel">27</x:Double>
+    <x:Double x:Key="GroesseKontext">13.5</x:Double>
+    <x:Double x:Key="GroesseTitel">16.5</x:Double>
+    <x:Double x:Key="GroesseUntertitel">13.5</x:Double>
+    <x:Double x:Key="GroesseFachgebiet">15</x:Double>
+    <x:Double x:Key="GroesseChip">12.5</x:Double>
+
+</ResourceDictionary>

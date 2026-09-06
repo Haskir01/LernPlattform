@@ -11,7 +11,12 @@ namespace LernPlattform.App
     public static class Startup
     {
         // Adresse der API an einer Stelle
-        private const string ApiBaseUrl = "http://localhost:5212/";
+        private static string ApiBaseUrl =>
+#if ANDROID
+    "http://10.0.2.2:5212/";
+#else
+    "http://localhost:5212/";
+#endif
 
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
