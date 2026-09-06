@@ -4,38 +4,57 @@
              xmlns:dtos="clr-namespace:LernPlattform.Shared.Dtos;assembly=LernPlattform.Shared"
              x:Class="LernPlattform.App.Views.BereichePage"
              x:Name="Seite"
+             BackgroundColor="{StaticResource SeiteHell}"
              Title="Prüfungsbereiche">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*"
+          Padding="{StaticResource SeitenRand}"
+          RowSpacing="{StaticResource AbstandTitelListe}">
 
-        <ActivityIndicator Grid.Row="0"
+        <!-- Seitentitel -->
+        <VerticalStackLayout Grid.Row="0" Spacing="2">
+            <Label Text="Prüfungsbereiche"
+                   FontSize="{StaticResource GroesseSeitentitel}"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource TextPrimaerHell}" />
+            <Label Text="Fachinformatiker Baden-Württemberg"
+                   FontSize="{StaticResource GroesseKontext}"
+                   TextColor="{StaticResource TextSekundaerHell}" />
+        </VerticalStackLayout>
+
+        <!-- Zustände -->
+        <ActivityIndicator Grid.Row="1"
                            IsRunning="{Binding IstAmLaden}"
                            IsVisible="{Binding IstAmLaden}"
-                           Margin="0,20" />
+                           Color="{StaticResource TextSekundaerHell}" />
 
-        <CollectionView Grid.Row="1"
-                        ItemsSource="{Binding Bereiche}"
-                        Margin="16">
+        <Label Grid.Row="1"
+               Text="{Binding FehlerText}"
+               TextColor="#B3261E"
+               FontSize="{StaticResource GroesseUntertitel}"
+               HorizontalTextAlignment="Center" />
 
-            <!-- NEU: Raster statt Liste -->
+        <!-- Liste -->
+        <CollectionView Grid.Row="2" ItemsSource="{Binding Bereiche}">
+
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
-                                 Span="2"
-                                 HorizontalItemSpacing="12"
-                                 VerticalItemSpacing="12" />
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="{StaticResource AbstandEintraege}" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="dtos:BereichDto">
 
-                    <!-- GEÄNDERT: Margin weg, feste Höhe, weniger Padding -->
-                    <Border BackgroundColor="{Binding Farbe}"
-                            StrokeThickness="0"
-                            Padding="16"
-                            HeightRequest="150">
+                    <Border BackgroundColor="{StaticResource KarteHell}"
+                            Stroke="{StaticResource RahmenHell}"
+                            StrokeThickness="1"
+                            Padding="{StaticResource InnenabstandEintrag}"
+                            MinimumHeightRequest="{StaticResource MindesthoeheEintrag}">
+
                         <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="14" />
+                            <RoundRectangle CornerRadius="{StaticResource RadiusEintrag}" />
                         </Border.StrokeShape>
+
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer
                                 Command="{Binding Source={x:Reference Seite},
@@ -43,20 +62,53 @@
                                 CommandParameter="{Binding .}" />
                         </Border.GestureRecognizers>
 
-                        <!-- GEÄNDERT: Spacing 60 -> 6, zentriert -->
-                        <VerticalStackLayout Spacing="6" VerticalOptions="Center">
-                            <Label Text="{Binding Kuerzel}"
-                                   FontSize="22"
+                        <Grid ColumnDefinitions="58,*,Auto" ColumnSpacing="12">
+
+                            <!-- Kürzel-Chip: blasse Fläche -->
+                            <Border Grid.Column="0"
+                                    BackgroundColor="{Binding Farbe}"
+                                    Opacity="0.12"
+                                    HeightRequest="30"
+                                    StrokeThickness="0"
+                                    VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="{StaticResource RadiusChip}" />
+                                </Border.StrokeShape>
+                            </Border>
+
+                            <!-- Kürzel-Chip: Text darüber -->
+                            <Label Grid.Column="0"
+                                   Text="{Binding Kuerzel}"
+                                   TextColor="{Binding Farbe}"
+                                   FontSize="{StaticResource GroesseChip}"
                                    FontAttributes="Bold"
-                                   TextColor="White" />
-                            <Label Text="{Binding Titel}"
-                                   FontSize="13"
-                                   TextColor="White" />
-                            <Label Text="{Binding Beschreibung}"
-                                   FontSize="11"
-                                   TextColor="White"
-                                   Opacity="0.85" />
-                        </VerticalStackLayout>
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+
+                            <!-- Titel und Beschreibung -->
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Spacing="3"
+                                                 VerticalOptions="Center">
+                                <Label Text="{Binding Titel}"
+                                       FontSize="{StaticResource GroesseTitel}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimaerHell}"
+                                       MaxLines="2"
+                                       LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding Beschreibung}"
+                                       FontSize="{StaticResource GroesseUntertitel}"
+                                       TextColor="{StaticResource TextSekundaerHell}"
+                                       MaxLines="2"
+                                       LineBreakMode="TailTruncation" />
+                            </VerticalStackLayout>
+
+                            <!-- Pfeil -->
+                            <Label Grid.Column="2"
+                                   Text="›"
+                                   FontSize="22"
+                                   TextColor="{StaticResource TextSekundaerHell}"
+                                   VerticalOptions="Center" />
+                        </Grid>
                     </Border>
 
                 </DataTemplate>
